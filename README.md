@@ -1,2 +1,2 @@
 # algorithms
-Various basic algorithm implementations
+Various basic algorithm implementations in C++ langauge.
