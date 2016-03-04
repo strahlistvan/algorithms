@@ -2,6 +2,12 @@
 #include <cstdlib>
 using namespace std;
 
+/**  Template Stack class 
+  *   Usage:
+  *   Stack<typename> stackname;
+  *   or 
+   *  Stack<typename> * stackname = new Stack<typename>();
+*/
 template <class T>
 class Stack 
 {
