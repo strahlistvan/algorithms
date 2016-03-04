@@ -2,8 +2,8 @@
 using namespace std;
 
 /**  Queue template class
-  *   Used array implementation, with simple modular arithmetics.
-*/
+ *   Used array implementation, with simple modular arithmetics.
+ */
 template <class T>
 class Queue
 {
@@ -22,8 +22,8 @@ class Queue
 	}
 	
 	/** Parameterized constructor 
-	  * @param int custum_size - initial size of the Queue (can not modify later)
-	*/
+	 * @param int custum_size - initial size of the Queue (can not modify later)
+	 */
 	Queue(int custum_size):  SIZE(custum_size)
 	{
 		front = 0;
@@ -44,9 +44,9 @@ class Queue
 	}
 	
 	/**  Put an element to the end of the Queue. Increasing Queue size.
-      *   @param T elem - the element to put to the end
+          *   @param T elem - the element to put to the end
 	  *   @return void
-	 */
+	  */
 	void put(T elem)
 	{
 		if (this->size() == this->max_size()) 
@@ -59,8 +59,8 @@ class Queue
 	}
 	
 	/** Get and erase the first element of the Queue. Decreasing Queue size.
-     *   @return  the first element of the Queue
-	*/
+         *   @return  the first element of the Queue
+ 	 */
 	T get()
 	{
 		T back_value;
@@ -76,8 +76,8 @@ class Queue
 	}
 	
 	/** Prints the elements of the Queue
-	  *  Warning: it works properly only if you can use the << operator for the elements.
-	*/
+	 *  Warning: it works properly only if you can use the << operator for the elements.
+         */
 	void print()
 	{
 		if (this->size()==0)
@@ -95,9 +95,9 @@ class Queue
 	}
 		
 	/** Prints the whole array of the queue implementation, from the beginning to the end.
-	  *  It can be useful for debugging.
-	  *  Warning: it works properly only if you can use the << operator for the elements.
-	*/	
+	 *  It can be useful for debugging.
+	 *  Warning: it works properly only if you can use the << operator for the elements.
+	 */	
 	void test_print()
 	{
 		for (int i=0; i<SIZE; ++i)
