@@ -42,6 +42,18 @@ class LinkedList
 		if (head==NULL)
 		{
 			head = new Node(elem);
+			++size;
+			return;
+		}
+			
+		if (head->next == NULL)
+		{
+			if (elem < head->value)
+			{
+				swap(elem, head->value);
+			}
+			head->next = new Node(elem);
+			++size;
 			return;
 		}
 		
@@ -49,26 +61,39 @@ class LinkedList
 		//Amig van rakovetkezo, es kisebb mint az elem (beszurasi hely megkeresese)
 		while (node->next && node->next->value < elem)
 		{
-			//cout<<node->value<<"<"<<elem<<endl;
 			node = node->next;
 		}
+		if (head->next->value < head->value)
+			swap(head->next->value, head->value);
 		
-		Node * next = node->next;	//rakovetkezo elmentese
-		node->next = new Node(elem, next);	//beszuras az uj helyre
+		Node * nextNode = node->next;	//rakovetkezo elmentese
+		node->next = new Node(elem, nextNode);	//beszuras az uj helyre
 		++size;	//meret noveles -> "extra" funkcio
 	}
 	
 	void delNode(int index)
 	{
-		//Index ellenorzese
-		if (index > size || index < 0)
+		if (head == NULL)	//ures-e a lista?
 		{
-			cerr<<"Invalid index: "<<index<<". Must be between 0 and "<<size<<endl;
+			cout<<"Empty list. Nothing to delete"<<endl;
 			return;
 		}
 		
-		Node * prevNode = head;
+		if (head->next == NULL)	//utolso elem torlese
+		{
+			head = NULL;
+			return;
+		}
+			
+		//Index ellenorzese
+		if (index >= size || index < 0)
+		{
+			cerr<<"Invalid index: "<<index<<". Must be between 0 and "<<(size-1)<<endl;
+			return;
+		}
+				
 		//Torlendo csucs elodjenek megkeresese
+		Node * prevNode = head;
 		for (int k=0; prevNode->next && k<index-1; ++k)
 		{
 			prevNode = prevNode->next;
@@ -78,7 +103,12 @@ class LinkedList
 		cout<<"Node to delete: "<<delNode->value<<endl;
 		delete delNode;
 		prevNode->next = nextNode;
+		--size;
+	}
 	
+	int get_size()
+	{
+		return this->size;
 	}
 	
 	void print()
@@ -106,10 +136,31 @@ int main(int argc, char ** argv)
 	list->insert(10);
 	list->insert(30);
 	list->insert(20);
+	list->print();
+	list->delNode(1);
+	list->print();
 	list->insert(40);
 	list->insert(35);
 	list->print();
+	cout<<"Size: "<<list->get_size()<<endl;
+	list->delNode(0);
+	cout<<"Size: "<<list->get_size()<<endl;
 	list->delNode(4);
+	cout<<"Size: "<<list->get_size()<<endl;
 	list->delNode(2);
+	cout<<"Size: "<<list->get_size()<<endl;
+	list->delNode(0);
+	list->delNode(0);
+	list->delNode(0);
+	list->delNode(0);
+	list->delNode(0);
+	
+	list->insert(111);
+	list->insert(2);
+	list->insert(1);
+	list->insert(42);
+	cout<<endl;
 	list->print();
+	
+	return 0;
 }
