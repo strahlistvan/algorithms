@@ -162,9 +162,23 @@ class BinTree
 		cout<<endl;
 	}
 	
+	/** Iterative searching in the binary search tree */
 	int search(int key)
 	{
-		return searchRec(key, this->root);
+		TreeNode * node = root;
+		int found = -1;
+		while (node!=NULL && node->value!=key)
+		{
+			if (key < node->value)
+				node = node->leftChild;
+			else
+				node = node->rightChild;
+		}
+		
+		if (node==NULL)
+			return -1;
+		if (node->value == key)
+			return node->value;
 	}
 	
 	int insert(int key)
@@ -199,11 +213,10 @@ class BinTree
 			parentNode->rightChild = insertNode;
 	}
 
-/*
 	Node * getNextNode(int key)
 	{
-		 Node * node = getNodeWithValue(key);
-		cout<<"erter"<<node->value<<endl;
+		Node * node = getNodeWithValue(key);
+		cout<<"ertek: "<<node->value<<endl;
 		
 		//if the given node right subtree is not empty
 		if (node->rightChild != NULL)
@@ -225,7 +238,6 @@ class BinTree
 		}
 		return parentNode;
 	}
-	*/
 };
 
 int main (int argc, char ** argv)
