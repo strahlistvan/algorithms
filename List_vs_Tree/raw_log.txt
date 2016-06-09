@@ -1,0 +1,69 @@
+strahl@strahl:~/List_vs_Tree$ g++ main.cpp -O3 -o main
+strahl@strahl:~/List_vs_Tree$ g++ main.cpp -O3 -o main
+strahl@strahl:~/List_vs_Tree$ ./main 100000 100000
+Tree insertion complete
+List insertion complete
+
+Find 100000 random items in linked list
+Completed! Found: 3/100000
+List search complete (54.3 sec.)
+
+Find (the same) 100000 random items in binary search tree
+Completed! Found: 3/100000
+Tree search complete (0.04 sec.)
+strahl@strahl:~/List_vs_Tree$ ./main 100000 1000
+Tree insertion complete
+List insertion complete
+
+Find 1000 random items in linked list
+Completed! Found: 0/1000
+List search complete (0.53 sec.)
+
+Find (the same) 1000 random items in binary search tree
+Completed! Found: 0/1000
+Tree search complete (0 sec.)
+strahl@strahl:~/List_vs_Tree$ ./main 100000 10000
+Tree insertion complete
+List insertion complete
+
+Find 10000 random items in linked list
+Completed! Found: 0/10000
+List search complete (5.17 sec.)
+
+Find (the same) 10000 random items in binary search tree
+Completed! Found: 0/10000
+Tree search complete (0 sec.)
+strahl@strahl:~/List_vs_Tree$ ./main 100000 200000
+Tree insertion complete
+List insertion complete
+
+Find 200000 random items in linked list
+Completed! Found: 9/200000
+List search complete (105.23 sec.)
+
+Find (the same) 200000 random items in binary search tree
+Completed! Found: 9/200000
+Tree search complete (0.09 sec.)
+strahl@strahl:~/List_vs_Tree$ ./main 100000 100000
+Tree insertion complete
+List insertion complete
+
+Find 100000 random items in linked list
+Completed! Found: 3/100000
+List search complete (51.85 sec.)
+
+Find (the same) 100000 random items in binary search tree
+Completed! Found: 3/100000
+Tree search complete (0.06 sec.)
+strahl@strahl:~/List_vs_Tree$ ./main 100000 500000
+Tree insertion complete
+List insertion complete
+
+Find 500000 random items in linked list
+Completed! Found: 25/500000
+List search complete (264.33 sec.)
+
+Find (the same) 500000 random items in binary search tree
+Completed! Found: 25/500000
+Tree search complete (0.22 sec.)
+strahl@strahl:~/List_vs_Tree$ ./main 100000 50000
