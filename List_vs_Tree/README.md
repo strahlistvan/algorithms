@@ -24,3 +24,8 @@ Keresett számok,,,
 5 M,"8,3",23036,
 10 M,"16,71",46230,
 20 M,"32,98",92394,
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
