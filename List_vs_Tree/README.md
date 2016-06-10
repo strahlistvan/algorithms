@@ -2,7 +2,6 @@
 
 ## Comparsion of the Simple linked list and the Binary search tree insert efficiency
 
-100 000 méretű minta,,,
 Count of searching | List time [s] | Tree time [s] | Founded Elements
 ---------------------------------------------------------------------
 1000 | 0.53 | 0 | 0
