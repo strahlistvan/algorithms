@@ -3,7 +3,7 @@
 ## Comparsion of the Simple linked list and the Binary search tree insert efficiency
 
 Count of searching | List time [s] | Tree time [s] | Founded Elements
----------------------------------------------------------------------
+-------------------|---------------|---------------|-----------------
 1000 | 0.53 | 0 | 0
 10000 |  5.19 | 0.00 | 0
 100000 | 54.3 | 0.04 | 3
