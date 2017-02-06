@@ -1,7 +1,7 @@
 Elsõ szám beolvasása
 ,.>>
 ++++++[<++++++++>-] 48 konstans = hatszor nyolc
-[-<-]<
+<
 [ -< -> ] kivonás = #1 és #2 csökkentése amíg #2 el nem fogy
 
 Plusz jel kiírása:
@@ -14,7 +14,7 @@ Plusz jel kiírása:
 Második szám beolvasása
 ,.>>
 ++++++[<++++++++>-] 48 konstans = hatszor nyolc
-[-<-]<
+<
 [ -< -> ] kivonás = #1 és #2 csökkentése amíg #2 el nem fogy
 
 Egyenlõség jel kiírása:
