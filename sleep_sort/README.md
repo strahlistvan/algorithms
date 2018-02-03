@@ -5,7 +5,7 @@ My [sleep sort](https://dev.to/sishaarrao/sleep-sort-where-theory-meets-sobering
 ## Requirement
 C++ compiler supporting C++ 11 or 14
 
-#Usage
+## Usage
 
 Just complile the *main.cpp* file with `-std=c++11` switch, like this: 
 
