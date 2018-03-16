@@ -1,19 +1,30 @@
 #include <iostream>
 #include <cmath>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 int get_round_birth_year_count(int limit, int radix);
 
 int main(int argc, char ** argv){
-    int limit, radix;
+    int limit, radix, result;
+    ofstream fout;
+    stringstream filename;
 
     cout << "Age limit: ";
     cin  >> limit;
-    cout << "Selected numeral system base: ";
-    cin  >> radix;
 
-    cout << "Round birth year count : " << get_round_birth_year_count(limit, radix);
+    filename << "number_" << limit << ".csv";
+    fout.open(filename.str());
+    fout << "radix;count";
 
+    for (radix = 2; radix < limit; ++radix) {
+        result = get_round_birth_year_count(limit, radix);
+        cout << "Round birth year count in base " << radix << ": "<< result << endl;
+        fout << radix << ";" << result << endl;
+    }
+
+    fout.close();
     return 0;
 }
 
@@ -34,7 +45,7 @@ int get_round_birth_year_count(int limit, int radix) {
         }
 
         if (current_age <= limit) {
-            cout << current_age << endl;
+//            cout << current_age << endl;
             ++total_count;
         }
     }

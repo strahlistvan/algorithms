@@ -1,5 +1,7 @@
 # depslib dependency file v1.0
-1521205847 source:c:\users\strahl\documents\progi\algorithms\round_birth_year_counter\main.cpp
+1521235384 source:c:\users\strahl\documents\progi\algorithms\round_birth_year_counter\main.cpp
 	<iostream>
 	<cmath>
+	<fstream>
+	<sstream>
 

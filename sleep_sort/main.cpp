@@ -4,11 +4,11 @@
 #include <vector>
 using namespace std;
 
-const int MAX_INPUT_VALUE = 1000;
-const int INPUT_SIZE = 100;
-const int TIME_SLOT_RATE = 100;
+const int MAX_INPUT_VALUE = 100;
+const int INPUT_SIZE = 200;
+const int TIME_SLOT_RATE = 1000;
 
-vector<int> result_list;
+// vector<int> result_list;
 
 void thread_delay(int seconds)
 {
@@ -16,24 +16,21 @@ void thread_delay(int seconds)
 	this_thread::sleep_for(duration);
 
     //push the number to the global result list after thread delaying
-	result_list.push_back(seconds);
+	//result_list.push_back(seconds);
+    cout << seconds << endl;
 }
 
-
-vector<int> sleep_sort(vector<int>::iterator vec_begin, vector<int>::iterator vec_end)
+void sleep_sort(vector<int> input)
 {
-    int vec_size = vec_end - vec_begin ;
-    vector<thread> thread_list;
+    int vec_size = input.size();
+    vector<thread> thread_list(vec_size);
 
-    result_list.clear();
-    thread_list.resize(vec_size);
+//    result_list.clear();
 
 	//Running threads
-	auto it = vec_begin;
 	for (int i=0; i<vec_size; ++i)
 	{
-		thread_list[i]= thread(thread_delay, *it);
-		++it;
+		thread_list[i] = thread(thread_delay, input[i]);
 	}
 
 	//Join threads to the main thread
@@ -43,7 +40,7 @@ vector<int> sleep_sort(vector<int>::iterator vec_begin, vector<int>::iterator ve
             thread_list[i].join();
 	}
 
-    return result_list;
+//    return result_list;
 }
 
 int main(int arc, char ** argv)
@@ -65,13 +62,13 @@ int main(int arc, char ** argv)
         input.push_back(rand()%MAX_INPUT_VALUE+1);
     }
 
-    output = sleep_sort(input.begin(), input.end());
-
+    //output = sleep_sort(input);
+    sleep_sort(input);
 	//Print the result
-	for (int i=0; i<output.size(); ++i)
-    {
-        cout << "output[" << i << "] = " << output[i] << endl;
-    }
+	//for (int i=0; i<output.size(); ++i)
+   // {
+   //     cout << "output[" << i << "] = " << output[i] << endl;
+   // }
 
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double, milli> elapsed = end-start;

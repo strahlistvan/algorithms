@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1518638209 source:c:\users\strahl\documents\progi\algorithms\sleep_sort\main.cpp
+	<iostream>
+	<cstdlib>
+	<thread>
+	<vector>
+
