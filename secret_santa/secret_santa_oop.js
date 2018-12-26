@@ -12,7 +12,7 @@ class MagicHat {
             [this.peopleInHat[i], this.peopleInHat[rand]] = [this.peopleInHat[rand], this.peopleInHat[i]];
         }
     }
-    choose() {
+    pick() {
         return this.peopleInHat.shift();
     }
     putBack(card) {
@@ -26,10 +26,10 @@ class Person {
         this.presentPersonId = null;
     }
     getRandomPeopleFromHat(magicHat) {
-        this.presentPersonId = magicHat.choose();
+        this.presentPersonId = magicHat.pick();
         if (this.presentPersonId === this.personId) {
             magicHat.putBack(this.presentPersonId);
-            this.presentPersonId = magicHat.choose();
+            this.presentPersonId = magicHat.pick();
         }
         magicHat.shuffle();
     }
