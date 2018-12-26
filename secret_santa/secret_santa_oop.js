@@ -25,7 +25,7 @@ class Person {
         this.personId = personId;
         this.presentPersonId = null;
     }
-    getRandomPeopleFromHat(magicHat) {
+    getRandomPersonFromHat(magicHat) {
         this.presentPersonId = magicHat.pick();
         if (this.presentPersonId === this.personId) {
             magicHat.putBack(this.presentPersonId);
@@ -84,7 +84,7 @@ for (let i=0; i<EXP_COUNT; ++i) {
     
     for (let currentPersonId = 1; currentPersonId <= NUMBER_OF_PEOPLE; ++currentPersonId) {
         let person = new Person(currentPersonId);
-        person.getRandomPeopleFromHat(magicHat);
+        person.getRandomPersonFromHat(magicHat);
         peopleList.push(person);
     }
 
