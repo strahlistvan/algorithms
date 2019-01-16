@@ -1,0 +1,1 @@
+function Storm(mymusic){Therain=1;while(mymusic>0){Therain=Therain*mymusic;mymusic--;}return Therain;}console.log(Storm(4));

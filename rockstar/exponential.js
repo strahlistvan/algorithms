@@ -1,0 +1,1 @@
+function POWER(BASE,EXP){PRODUCT=1;while(EXP>0){PRODUCT=PRODUCT*BASE;EXP--;}return PRODUCT;}Nagyi=3;Jani=3;console.log(POWER(Nagyi,Jani));RESULT=POWER(Nagyi,Jani);console.log(RESULT);

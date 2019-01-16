@@ -1,0 +1,1 @@
+function FACT(PAR){PRODUCT=1;while(PAR>0){console.log(PAR);PRODUCT=PRODUCT*PAR;PAR--;}console.log(PRODUCT);return PRODUCT;}Pici=6;console.log(FACT(Pici));

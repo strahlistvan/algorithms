@@ -1,0 +1,1 @@
+function Moonlight(yourheart){Mysoul=8;TheMountains=0;console.log("the mountains");console.log(TheMountains);TheNight=1;while(Mysoul>TheMountains){TheNight=TheNight*yourheart;Mysoul--;}return TheNight;}console.log(Moonlight(3));

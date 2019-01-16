@@ -1,0 +1,13 @@
+FACT takes PAR
+  PRODUCT was abcdefghijk
+  While PAR is greater than nothing
+    Say PAR
+    Put PRODUCT times PAR into PRODUCT
+    Knock PAR down
+  
+  Say PRODUCT
+Give back PRODUCT
+
+
+Pici was abcdef
+Say FACT taking Pici

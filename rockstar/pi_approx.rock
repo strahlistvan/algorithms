@@ -1,0 +1,69 @@
+FACT takes PAR
+  If PAR is 0
+    Give back 1 
+  
+  PRODUCT was abcdefghijk
+  While PAR is greater than nothing
+    Put PRODUCT times PAR into PRODUCT
+    Knock PAR down
+  
+Give back PRODUCT
+
+POWER takes BASE and EXP
+  If EXP is 0
+    Give back 1
+
+ PRODUCT was 1
+ While EXP is higher than nothing
+   Put PRODUCT times BASE into PRODUCT
+   Knock EXP down
+ 
+Give back PRODUCT
+
+SQRTWO is 1.4142135623730950488
+Shout SQRTWO
+TWO was ab
+DENOM was abcdefghi abcdefgh aaaaaaaaaa i
+Put SQRTWO times TWO into NUMER
+Put NUMER over DENOM into CONSTANT
+(CONSTANT was 0.0002885855652225477)
+Say "Constant multiplier"
+Say CONSTANT
+
+LIMIT is 4
+INDEX is nothing
+
+FOUR is 4
+CONST ONE is 1103
+CONST TWO is 26390
+CONST THREE is 396
+
+SUM is nothing
+While INDEX is less than LIMIT
+  Put FOUR times INDEX into FOURK
+  Put FACT taking FOURK into FOURKFACT
+  Put FACT taking INDEX into KFACT
+  Put CONST TWO times INDEX into CONST FOUR
+  Put CONST ONE plus CONST FOUR into KCONST
+  Put FOURKFACT times KCONST into NUMERATOR
+  Shout "Numerator"
+  Say NUMERATOR
+  Put POWER taking KFACT, FOUR into TAGONE
+  Put POWER taking CONST THREE, FOURK into TAGTWO
+  Put TAGONE times TAGTWO into DENOMINATOR
+  Shout "Denominator"  
+  Say DENOMINATOR
+  Put NUMERATOR over DENOMINATOR into DIFF
+  Say DIFF
+  Put SUM plus DIFF into SUM
+  Build INDEX up
+
+  ONE is 1
+  Put CONSTANT times SUM into PIINV
+  Shout ONE over PIINV
+
+Say INDEX
+ 
+ONE is 1
+Put CONSTANT times SUM into PIINV
+Shout ONE over PIINV

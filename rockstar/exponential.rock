@@ -1,0 +1,15 @@
+POWER takes BASE and EXP
+ PRODUCT was 1
+ While EXP is higher than nothing
+   Put PRODUCT times BASE into PRODUCT
+   Knock EXP down
+ 
+Give back PRODUCT
+
+
+Nagyi was abc
+Jani was abc
+
+Say POWER taking Nagyi, Jani
+Put POWER taking Nagyi, Jani into RESULT
+Say RESULT
