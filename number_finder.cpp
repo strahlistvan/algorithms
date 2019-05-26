@@ -8,14 +8,14 @@ void play_number_finder(int limit) {
 	int tought = rand()%limit + 1;
 	int answer, answer_count = 0;
 	do {
-        cout << "Kérek egy számot 1 és " << limit << " között: ";
+        cout << "KÃ©rek egy szÃ¡mot 1 Ã©s " << limit << " kÃ¶zÃ¶tt: ";
 		cin >> answer;
         ++answer_count;
 		if (tought < answer) cout << "Kisebbre gondoltam." << endl;
 		if (tought > answer) cout << "Nagyobbra gondoltam." << endl;
 	} while (answer != tought);
 
-	cout << "Eltaláltad " << answer_count << " lépésbõl. Vége a játéknak" << endl;
+	cout << "EltalÃ¡ltad " << answer_count << " lÃ©pÃ©sbÃµl. VÃ©ge a jÃ¡tÃ©knak" << endl;
 }
 
 void play_gold_finder(int limit) {
@@ -56,7 +56,7 @@ void play_general_finder(int limit, int dimensions) {
 	int * result_coords = new int[dimensions];
 	bool found = false;
 
-	//generate coordinates
+    //generate coordinates
     srand(time(0));
 	for (int i=0; i<dimensions; ++i) {
         tought_coords[i] = rand()%limit + 1;
