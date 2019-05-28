@@ -17,6 +17,12 @@ class Election {
     dHondtMatrix: number[][];
     mandateCount: number;
     method: (x: number) => number = (x: number) => x+1;
+    treshold: number;
+
+    private calcTotalVotes(): number {
+        return this.partyList.map((p: Party) : number => p.voteCount)
+                             .reduce( (sum, elem) => sum + elem);
+    }
 
     private calcMatrix() {
 
@@ -29,7 +35,7 @@ class Election {
 
                 let divider = this.method(row);
                 this.dHondtMatrix[row] = 
-                    this.partyList.map( val => Math.floor(val.voteCount/divider) );
+                    this.partyList.map( party => Math.floor(party.voteCount/divider) );
             }
         }  
     }
@@ -38,14 +44,20 @@ class Election {
         let max: number = this.dHondtMatrix[0][0];
         let maxRowIndex: number = 0;
         let maxColIndex: number = 0;
-    
+
+        let totalVotes = this.calcTotalVotes()
+
         for (let rows = 0; rows < this.dHondtMatrix.length; ++rows) {
 
             for (let cols = 0; cols < this.dHondtMatrix[rows].length; ++cols) {
-                if (this.dHondtMatrix[rows][cols] > max) {
-                    maxRowIndex = rows;
-                    maxColIndex = cols;
-                    max = this.dHondtMatrix[rows][cols];
+
+                if (!this.treshold || this.partyList[cols].voteCount > this.treshold * totalVotes ) {
+
+                    if (this.dHondtMatrix[rows][cols] > max) {
+                        maxRowIndex = rows;
+                        maxColIndex = cols;
+                        max = this.dHondtMatrix[rows][cols];
+                    }
                 }
             }
         }
@@ -64,8 +76,7 @@ class Election {
     }
 
     calcByPropotion() {
-        let totalVotes = this.partyList.map((p: Party) : number => p.voteCount)
-                                       .reduce( (sum, elem) => sum + elem);
+        let totalVotes = this.calcTotalVotes();
 
         this.partyList.forEach( 
             (p: Party) => p.proportionalSeats = this.mandateCount * (p.voteCount / totalVotes) 
@@ -84,6 +95,7 @@ class Election {
         this.calcByPropotion();
 
         console.log(this.partyList);
+        console.log(this.calcTotalVotes());
     }
 }
 
@@ -94,10 +106,24 @@ let voteList: Party[] = [ new Party("Yellow", 47000) // {partyName: "Yelllow", v
                          ,new Party("Blue", 6000) //{partyName: "Blue", voteCount: 6000} as Party 
                          ,new Party("Brown", 3100) //{partyName: "Brown", voteCount: 3100} as Party 
                         ];
+ 
+let voteList2: Party[] = [ new Party("Yellow", 49000) 
+                          ,new Party("White", 8000) 
+                          ,new Party("Red", 13000) 
+                          ,new Party("Green", 2000) 
+                          ,new Party("Blue", 2000) 
+                          ,new Party("Brown", 8000)
+                          ,new Party("Black", 4500)
+                          ,new Party("Pink", 4500)
+                          ,new Party("Orange", 3500)
+                          ,new Party("Cyan", 4000) 
+                          ,new Party("Grey", 1500)
+                       ];
                        
 let election = new Election();
-election.partyList = voteList;
+election.partyList = voteList2;
 election.mandateCount = 10;
-//election.method = (row: number) => /*Math.pow(2, row + 1) */;
+election.treshold = 0.05;
+//election.method = (row: number) => Math.pow(2, row + 1);
 
 election.calcResult();
