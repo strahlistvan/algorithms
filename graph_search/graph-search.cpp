@@ -6,12 +6,15 @@
 #include<algorithm>
 using namespace std;
 
-const int N=5;
-int G[N][N]={{0,1,1,0,0},
-             {1,0,0,1,1},
-             {1,0,0,1,1},
-             {0,1,1,0,1},
-             {0,1,1,1,0}};
+const int N=8;
+int G[N][N]={{0,1,1,0,0,0,0,0},
+             {1,0,0,1,1,0,0,0},
+             {1,0,0,1,1,1,0,0},
+             {0,1,1,0,1,0,0,0},
+             {0,1,1,1,0,0,0,0},
+             {0,0,1,0,0,0,1,1},
+             {0,0,0,0,1,1,0,1},
+             {0,0,0,0,0,1,1,0}};
 
 //const int N = 10000;
 //int G[N][N];
@@ -43,20 +46,19 @@ void dfsearch(int v){
 }
 
 void dfsearch_it(int v){
-  vector<int> stack_v;
-  path.clear();
+  vector<int> current_path;
 
-  stack_v.push_back(v);
-  while(!stack_v.empty()) {
-      v = stack_v.back();
-      stack_v.pop_back();
+  current_path.push_back(v);
+  while(!current_path.empty()) {
+      v = current_path.back();
+      current_path.pop_back();
       if (OK[v] == 0) {
           OK[v] = 1;
           path.push_back(v);
           for(int i=N-1; i>=0; i--){ //0..N or N..0
         //   for (int i=0; i<N; ++i) {
             if(G[v][i]!=0 && OK[i]==0) {
-                stack_v.push_back(i);
+                current_path.push_back(i);
             }
           }
       }
@@ -125,27 +127,27 @@ void reinit_globals(){
 
 int main(){
 
-  gen_random_graph(G, 0.9);
+//  gen_random_graph(G, 0.9);
 
-  dfsearch(2);
+  dfsearch(0);
   cout<<"melysegi kereses: "<<endl;
- // print_path(path);
+  print_path(path);
 
   reinit_globals();
-  bfsearch(2);
+  bfsearch(0);
   cout<<"szelessegi kereses: "<<endl;
-//  print_path(path);
+  print_path(path);
 /*
   for (int k=0; k<10; ++k) {
       reinit_globals();
-      bfsearch_para(2, 0);
+      bfsearch_para(0, 0);
       cout<<"szelessegi parhuzamos kereses: "<<endl;
       print_path(path);
   }
 */
 
   reinit_globals();
-  dfsearch_it(2);
+  dfsearch_it(0);
   cout<<"iterativ melysegi kereses: "<<endl;
-//  print_path(path);
+  print_path(path);
 }
