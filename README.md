@@ -8,4 +8,4 @@ Also contains some simulations for some funny mathematical/statistical subjects,
 
 I use C/C++ or sometimes Java or JavaScript languages for the algorithm implementations.
 But I also have some simple and short program for Turing-machines,
-written in the well-known [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) script language. To run them I recommend [this awesome visual interpreter](https://fatiherikli.github.io/brainfuck-visualizer/). 
+written in the well-known [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) script language. To run them I recommend to use [this awesome visual interpreter](https://fatiherikli.github.io/brainfuck-visualizer/). 
